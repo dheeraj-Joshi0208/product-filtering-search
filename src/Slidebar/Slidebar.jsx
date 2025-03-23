@@ -6,9 +6,9 @@ import Colors from "./Colors/Colors";
 const Slidebar = () => {
   return (
     <>
-      <section className="sidebar w-[15%] fixed h-screen z-[3]">
-        <div className="logo-container">
-          <h1>🛒</h1>
+      <section className="border-r-2 border-gray-200 h-screen flex flex-col pl-10">
+        <div className="mb-16">
+          <h1 className="mt-6">🛒</h1>{" "}
         </div>
         <Category />
         <Price />

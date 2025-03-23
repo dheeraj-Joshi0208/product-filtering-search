@@ -4,7 +4,7 @@ import { AiOutlineShoppingCart, AiOutlineUserAdd } from "react-icons/ai";
 
 const Nav = () => {
   return (
-    <nav className="flex items-center justify-around border-b-2 border-gray-300 p-4">
+    <nav className="flex items-center justify-between p-4">
       {/* Search Input */}
       <input
         className="px-4 py-2 w-56 md:w-72 bg-gray-100 border border-gray-300 rounded-md outline-none focus:ring-1 focus:ring-gray-400"

@@ -3,9 +3,9 @@ import React from "react";
 const Recommends = () => {
   return (
     <>
-      <div>
-        <h2 className="ml-[20rem] mb-20px mt-20px text-2xl">Recommended</h2>
-        <div className="flex ml-[20rem]">
+      <div className="p-4">
+        <h2 className="mb-20px mt-20px text-2xl">Recommended</h2>
+        <div className="flex mt-2">
           <button className="btns">All Products</button>
           <button className="btns">Nike</button>
           <button className="btns">Adidas</button>
