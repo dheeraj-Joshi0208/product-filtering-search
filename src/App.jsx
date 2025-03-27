@@ -6,7 +6,7 @@ import products from "./db/data";
 import Recommended from "./Recommended/Recommended";
 import Sidebar from "./Sidebar/Sidebar";
 import Card from "./components/Card";
-import "./index.css";
+import "./App.css";
 
 function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -71,10 +71,16 @@ function App() {
 
   return (
     <>
-      <Sidebar handleChange={handleChange} />
-      <Navigation query={query} handleInputChange={handleInputChange} />
-      <Recommended handleClick={handleClick} />
-      <Products result={result} />
+      <div className="container">
+        <div className="Sidebar">
+          <Sidebar handleChange={handleChange} />
+        </div>
+        <div className="main">
+          <Navigation query={query} handleInputChange={handleInputChange} />
+          <Recommended handleClick={handleClick} />
+          <Products result={result} />
+        </div>
+      </div>
     </>
   );
 }

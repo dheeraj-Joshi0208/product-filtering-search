@@ -1,42 +1,66 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
+/* Container to hold Sidebar and main content */
+.container {
+  display: flex;
+  height: 100vh;
+}
+
+/* Sidebar styles */
+.Sidebar {
+  width: 240px;
+  border-right: 1px solid rgba(128, 128, 128, 0.251);
+  padding: 2rem 1rem;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  z-index: 2;
+}
+
+/* Main content styles */
+.main {
+  margin-left: 240px;
+  width: calc(
+    100% - 240px
+  ); /* Ensure the main content takes up the remaining space */
   padding: 2rem;
-  text-align: center;
+  overflow-y: auto; /* Allow scrolling if content overflows */
+  background-color: #fff;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
-}
-
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+@media (max-width: 768px) {
+  /* Responsive styles */
+  .Sidebar {
+    width: 100%;
+    position: static; /* Make the sidebar flow with the content */
+    height: auto;
+    padding: 1rem;
   }
-  to {
-    transform: rotate(360deg);
+
+  .main {
+    margin-left: 0;
+    width: 100%;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .Products {
+    grid-template-columns: repeat(2, 1fr);
   }
-}
 
-.card {
-  padding: 2em;
-}
+  .Recommended {
+    justify-content: center;
+  }
 
-.read-the-docs {
-  color: #888;
+  .Navigation {
+    padding: 1rem;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .Navigation input {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+
+  .Navigation .icons {
+    margin-top: 1rem;
+  }
 }

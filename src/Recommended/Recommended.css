@@ -1,11 +1,13 @@
-.recommended-flex {
+.recommended-container {
   display: flex;
-  margin-left: 20rem;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 20px 0;
+}
+.recommended-flex {
+  margin-top: 10px;
 }
 
 .recommended-title {
-  margin-left: 20rem;
-  margin-bottom: 20px;
-  margin-top: 20px;
   font-size: 20px;
 }

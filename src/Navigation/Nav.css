@@ -1,26 +1,38 @@
 nav {
   display: flex;
-  border-bottom: 2px solid #f3f3f3;
-  justify-content: space-around;
+  justify-content: space-between;
   align-items: center;
-  padding: 20px;
-  z-index: 999;
-  margin-left: 2rem;
+  background-color: #fff;
 }
 
 input {
-  padding: 12px 20px;
-  border: none;
-  background: #f7f6f6;
+  width: 100%;
+  padding: 1rem 2.5rem;
+  border-radius: 50px;
+  border: 1px solid #ccc;
   outline: none;
-  margin-right: 20px;
-  border-radius: 5px;
-  position: relative;
-  width: 14rem;
+  -webkit-border-radius: 50px;
+  -moz-border-radius: 50px;
+  -ms-border-radius: 50px;
+  -o-border-radius: 50px;
+}
+
+input:focus {
+  border-color: #ff0000; /* Focused input border color */
+}
+
+.profile-container {
+  display: flex;
+  gap: 20px;
+  color: #333;
 }
 
 .nav-icons {
-  width: 1.5rem;
-  height: 1.5rem;
-  margin-left: 2rem;
+  font-size: 1.5rem;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.nav-icons:hover{
+  color: #ff0000;
 }
