@@ -1,14 +1,9 @@
-import Card from "../components/card/Card";
+import "./Product.css";
 
-const Products = () => {
+const Products = ({ result }) => {
   return (
     <>
-      <div className="flex flex-wrap gap-[50px] overflow-y-scroll justify-items-start items-start">
-        <Card />
-        <Card />
-        <Card />
-        <Card />
-      </div>
+      <section className="card-container">{result}</section>
     </>
   );
 };

@@ -1,15 +1,20 @@
-import React from "react";
-import Input from "../../components/input/Input";
+import "./Category.css";
+import Input from "../../components/Input";
 
-const Category = (handleChange) => {
+function Category({ handleChange }) {
   return (
     <div>
-      <h2 className="text-[22px] font-bold mb-2">Category</h2>
+      <h2 className="sidebar-title">Category</h2>
+
       <div>
+        <label className="sidebar-label-container">
+          <input onChange={handleChange} type="radio" value="" name="test" />
+          <span className="checkmark"></span>All
+        </label>
         <Input
           handleChange={handleChange}
-          value="Sneakers"
-          title="Snikers"
+          value="sneakers"
+          title="Sneakers"
           name="test"
         />
         <Input
@@ -33,6 +38,6 @@ const Category = (handleChange) => {
       </div>
     </div>
   );
-};
+}
 
 export default Category;

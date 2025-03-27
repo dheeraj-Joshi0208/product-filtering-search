@@ -1,18 +1,26 @@
-import React, { useState } from "react";
-import Products from "./src/Products/Products";
-import Recommends from "./src/Recommends/Recommends";
-import Slidebar from "./src/Slidebar/Slidebar";
-import Nav from "./src/Navigation/Nav";
-import productsData from "./src/db/data";
-import Card from "./src/components/card/Card";
-const App = () => {
+import { useState } from "react";
+
+import Navigation from "./Navigation/Nav";
+import Products from "./Products/Products";
+import products from "./db/data";
+import Recommended from "./Recommended/Recommended";
+import Sidebar from "./Sidebar/Sidebar";
+import Card from "./components/Card";
+import "./index.css";
+
+function App() {
   const [selectedCategory, setSelectedCategory] = useState(null);
+
+  // ----------- Input Filter -----------
   const [query, setQuery] = useState("");
 
-  //------------------- Input Filter ----------------------
   const handleInputChange = (event) => {
     setQuery(event.target.value);
   };
+
+  const filteredItems = products.filter(
+    (product) => product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1
+  );
 
   // ----------- Radio Filtering -----------
   const handleChange = (event) => {
@@ -24,14 +32,15 @@ const App = () => {
     setSelectedCategory(event.target.value);
   };
 
-  const filterItems = productsData.filter((product) => {
-    return product.title.toLowerCase().indexOf(query.toLowerCase()) !== -1;
-  });
-
-  const filterData = (products, selected, query) => {
+  function filteredData(products, selected, query) {
     let filteredProducts = products;
-    if (query) filteredProducts = query;
 
+    // Filtering Input Items
+    if (query) {
+      filteredProducts = filteredItems;
+    }
+
+    // Applying selected filter
     if (selected) {
       filteredProducts = filteredProducts.filter(
         ({ category, color, company, newPrice, title }) =>
@@ -56,22 +65,18 @@ const App = () => {
         />
       )
     );
-  };
+  }
 
-  const output = filterData(productsData, selectedCategory, query);
+  const result = filteredData(products, selectedCategory, query);
 
   return (
-    <div className="relative flex overflow-hidden">
-      <div className="w-64 h-screen">
-        <Slidebar handleChange={handleChange} />
-      </div>
-      <div className="flex-1">
-        <Nav />
-        <Recommends />
-        <Products />
-      </div>
-    </div>
+    <>
+      <Sidebar handleChange={handleChange} />
+      <Navigation query={query} handleInputChange={handleInputChange} />
+      <Recommended handleClick={handleClick} />
+      <Products result={result} />
+    </>
   );
-};
+}
 
 export default App;
